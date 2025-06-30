@@ -251,6 +251,9 @@
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.color-box.active + .descripcion {
+  display: block !important;
+}
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -312,17 +315,17 @@ document.addEventListener("DOMContentLoaded", () => {
   <section id="nosotros" style="scroll-margin-top: 120px;">
   <h2 style="text-align:center; font-size: 1.8rem; margin-bottom: 2rem;">Nuestro Equipo</h2>
   <div class="grid">
-    <div class="card" onclick="this.classList.toggle('active')">
+    <div class="card active">
       <img src="jaime.jpg" alt="Jaime Valenzuela" />
       <h3 style="font-size: 1rem;">Jaime Valenzuela</h3>
       <div class="descripcion">CEO – Strategic leadership and vision. Más de 25 años de experiencia en banca y empresas locales e internacionales.</div>
     </div>
-    <div class="card" onclick="this.classList.toggle('active')">
+    <div class="card active">
       <img src="aroldo.jpg" alt="Aroldo Sandoval" />
       <h3 style="font-size: 1rem;">Aroldo Sandoval</h3>
       <div class="descripcion">CFO – Especialista en planificación financiera, liderazgo organizacional y desarrollo estratégico.</div>
     </div>
-    <div class="card" onclick="this.classList.toggle('active')">
+    <div class="card active">
       <img src="axel.jpg" alt="Axel González" />
       <h3 style="font-size: 1rem;">Axel González</h3>
       <div class="descripcion">CIO – Experticia en automatización, inteligencia de negocios y analítica avanzada de datos.</div>
@@ -332,8 +335,8 @@ document.addEventListener("DOMContentLoaded", () => {
   <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">Nuestros Colores</h2>
   <div class="grid">
     <div class="card">
-      <div style="background-color: #004C4C; height: 60px;"></div>
-      <div class="descripcion">Azul petróleo (#009F5C): confianza, inteligencia, análisis estratégico.</div>
+      <div class="color-box" onclick="this.classList.toggle('active')" style="background-color: $1; height: 60px; cursor: pointer;"></div>
+      <div class="descripcion" style="display: none;">$2</div>
     </div>
     <div class="card">
       <div style="background-color: #C7C8CA; height: 60px;"></div>
