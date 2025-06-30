@@ -18,6 +18,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      max-width: 100%;
+      overflow: hidden;
       
     header .branding {
       display: flex;
@@ -25,8 +27,10 @@
       gap: 1rem;
     }
     header img {
-      height: 120px;
+      height: 100px;
       max-width: 100%;
+      margin: 0 auto;
+      display: block;
     }
     
     header p {
@@ -59,7 +63,7 @@
       color: #f9d342;
     }
     section {
-      padding: 4rem 1.5rem;
+      padding: 2.5rem 1rem;
       max-width: 1200px;
       margin: auto;
     }
@@ -205,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="branding">
       <img src="logo.png" alt="VSG Logo" style="height: 200px;" />
       <div>
-        <p>Diseñamos estrategias, creamos valor</p>
+        <p style="font-size: 0.95rem;">Diseñamos estrategias, creamos valor</p>
       </div>
     </div>
   </header>
@@ -220,11 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
   </nav>
 
   <section id="nosotros" style="scroll-margin-top: 120px;">
-  <h2 style="text-align:center">Nuestro Equipo</h2>
+  <h2 style="text-align:center; font-size: 1.8rem; margin-bottom: 1rem;">Nuestro Equipo</h2>
   <div class="grid">
     <div class="card" onclick="this.classList.toggle('active')">
   <img src="jaime.jpg" alt="Jaime Valenzuela" />
-  <h3>Jaime Valenzuela</h3>
+  <h3 style="font-size: 1rem;">Jaime Valenzuela</h3>
   <div class="descripcion">Breve descripción sobre Jaime Valenzuela y los servicios que ofrecemos en esta división.</div>
       <p>CEO – Strategic leadership and vision</p>
       <p>+25 años de experiencia en empresas locales y extranjeras.</p>
@@ -311,7 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </section>
-
 
 
 
