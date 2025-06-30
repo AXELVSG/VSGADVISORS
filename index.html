@@ -254,6 +254,10 @@
 .color-box.active + .descripcion {
   display: block !important;
 }
+.descripcion.show {
+  display: block !important;
+  animation: fadeInUp 0.3s ease-in-out;
+}
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -335,8 +339,21 @@ document.addEventListener("DOMContentLoaded", () => {
   <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">Nuestros Colores</h2>
   <div class="grid">
     <div class="card">
-      <div class="color-box" onclick="this.classList.toggle('active')" style="background-color: $1; height: 60px; cursor: pointer;"></div>
-      <div class="descripcion" style="display: none;">$2</div>
+  <div class="color-box" onclick="this.nextElementSibling.classList.toggle('show')" style="background-color: #004C4C; height: 60px; cursor: pointer;"></div>
+  <div class="descripcion" style="display: none;">Azul petróleo (#004C4C): confianza, inteligencia, análisis estratégico.</div>
+</div>
+<div class="card">
+  <div class="color-box" onclick="this.nextElementSibling.classList.toggle('show')" style="background-color: #C7C8CA; height: 60px; cursor: pointer;"></div>
+  <div class="descripcion" style="display: none;">Gris claro (#C7C8CA): objetividad, equilibrio, claridad en la decisión.</div>
+</div>
+<div class="card">
+  <div class="color-box" onclick="this.nextElementSibling.classList.toggle('show')" style="background-color: #C4A169; height: 60px; cursor: pointer;"></div>
+  <div class="descripcion" style="display: none;">Oro suave (#C4A169): excelencia, sofisticación, valor duradero.</div>
+</div>
+<div class="card">
+  <div class="color-box" onclick="this.nextElementSibling.classList.toggle('show')" style="background-color: #FFFFFF; height: 60px; border: 1px solid #ccc; cursor: pointer;"></div>
+  <div class="descripcion" style="display: none;">Blanco (#FFFFFF): integridad, orden, transparencia en el actuar.</div>
+</div>
     </div>
     <div class="card">
       <div style="background-color: #C7C8CA; height: 60px;"></div>
@@ -419,19 +436,21 @@ document.addEventListener("DOMContentLoaded", () => {
 </section>
 
 <section id="contacto" style="background-color:#1b3c47; color: white;">
+  <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Puedes comunicarte con nosotros a través de los siguientes medios:</p>
   <h2 style="text-align:center">Contáctanos</h2>
   <div class="grid">
     <div class="card">
-      <h3>Correo electrónico</h3>
+      <h3><img src="mail-icon.svg" alt="email" style="height: 20px; vertical-align: middle; margin-right: 8px;"/>Correo electrónico</h3>
       <p><a href="mailto:contacto@vsgadvisors.com.gt" style="color:white">contacto@vsgadvisors.com.gt</a></p>
     </div>
     <div class="card">
-      <h3>WhatsApp</h3>
+      <h3><img src="whatsapp-icon.svg" alt="whatsapp" style="height: 20px; vertical-align: middle; margin-right: 8px;"/>WhatsApp</h3>
       <p><a href="https://wa.me/50200000000" target="_blank" style="color:white">+502 0000 0000</a></p>
     </div>
     <div class="card">
-      <h3>Ubicación</h3>
+      <h3><img src="location-icon.svg" alt="ubicación" style="height: 20px; vertical-align: middle; margin-right: 8px;"/>Ubicación</h3>
       <p>Ciudad de Guatemala, Guatemala</p>
     </div>
   </div>
 </section>
+
