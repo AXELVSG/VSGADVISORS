@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,24 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VSG Advisors</title>
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body { background: #f9f9f9; color: #1b3c47; }
+    header {
+      background: linear-gradient(to right, #1b3c47, #214d5e);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    header img {
+      max-width: 160px;
+      margin-bottom: 1rem;
+    }
+    header h1 { font-size: 2.5rem; font-weight: 800; }
+    header p { font-size: 1.2rem; color: #f9d342; }
+    nav {
+      background: white;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: fadeIn 1s ease-in-out;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #1b3c47;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9d342;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1531497865147-9f8a4c1a19f9') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+    .hero h2, .hero p {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: auto; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card h3 {
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 1rem;
+      background: #1b3c47;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1b3c47;
+      color: white;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <img src="logo.png" alt="VSG Logo">
-    <h1>VSG Advisors</h1>
-    <p>Diseñamos estrategias, creamos valor</p>
-  </header>
-  <section id="servicios">
-    <h2>Nuestras Divisiones</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="technology_converted.jpg" alt="Technology" />
-        <h3>VSG Advisors Technology</h3>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <p>© 2025 VSG Advisors | Todos los derechos reservados</p>
-  </footer>
-</body>
-</html>
+
