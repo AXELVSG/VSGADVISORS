@@ -17,15 +17,15 @@
       align-items: center;
       justify-content: space-between;
       position: fixed;
-      width: 100%;
       top: 0;
       left: 0;
-      z-index: 100;
+      width: 100%;
+      z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 90px;
+      height: 100px;
     }
 
     header h1 {
@@ -161,82 +161,3 @@
     });
   </script>
 </head>
-<body>
-  <header>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <img src="logo.png" alt="VSG Logo" />
-      <div>
-        <h1>VSG Advisors</h1>
-        <p>Diseñamos estrategias, creamos valor</p>
-      </div>
-    </div>
-    <nav>
-      <ul>
-        <li><a href=\"#inicio\">Inicio</a></li>
-        <li><a href=\"#nosotros\">Nosotros</a></li>
-        <li><a href=\"#servicios\">Servicios</a></li>
-        <li><a href=\"#contacto\">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class=\"hero\" id=\"inicio\">
-    <h2>Soluciones Estratégicas para Empresas Familiares</h2>
-    <p>Acompañamos a líderes empresariales en decisiones clave de gobierno, estructura, finanzas e innovación.</p>
-  </section>
-
-  <section id=\"servicios\">
-    <h2 style=\"text-align:center\">Nuestros Servicios</h2>
-    <div class=\"grid\">
-      <div class=\"card\">
-        <img src=\"finance.jpg\" alt=\"Finance\" />
-        <h3>VSG Advisors Finance</h3>
-        <div class=\"descripcion\">Asesoría financiera estratégica para crear valor empresarial y facilitar decisiones clave.</div>
-      </div>
-      <div class=\"card\">
-        <img src=\"legal.jpg\" alt=\"Legal\" />
-        <h3>VSG Advisors Legal</h3>
-        <div class=\"descripcion\">Estructuración legal, patrimonial y societaria para proteger y ordenar grupos empresariales.</div>
-      </div>
-      <div class=\"card\">
-        <img src=\"accounting.jpg\" alt=\"Accounting\" />
-        <h3>VSG Advisors Accounting</h3>
-        <div class=\"descripcion\">Servicios contables eficientes, orientados al análisis y cumplimiento de normas locales.</div>
-      </div>
-      <div class=\"card\">
-        <img src=\"tax.jpg\" alt=\"Tax\" />
-        <h3>VSG Advisors Tax</h3>
-        <div class=\"descripcion\">Planeación fiscal estratégica. Optimizamos tu estructura para pagar lo justo.</div>
-      </div>
-      <div class=\"card\">
-        <img src=\"structure.jpg\" alt=\"Structure\" />
-        <h3>VSG Advisors Structure</h3>
-        <div class=\"descripcion\">Rediseñamos estructuras societarias y de capital para impulsar crecimiento sostenido.</div>
-      </div>
-      <div class=\"card\">
-        <img src=\"technology.jpg\" alt=\"Technology\" />
-        <h3>VSG Advisors Technology</h3>
-        <div class=\"descripcion\">Automatizamos procesos para obtener información en tiempo real y facilitar la toma de decisiones.</div>
-      </div>
-    </div>
-  </section>
-
-  <section id=\"clientes\">
-    <h2 style=\"text-align:center\">Nuestros Clientes</h2>
-    <div class=\"grid\">
-      <div class=\"card\">
-        <img src=\"amigos.jpg\" alt=\"Amigos S.A.\" />
-        <h3>Amigos S.A.</h3>
-      </div>
-      <div class=\"card\">
-        <img src=\"sanpablo.jpg\" alt=\"San Pablo\" />
-        <h3>Petrolera San Pablo</h3>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 VSG Advisors | Todos los derechos reservados</p>
-  </footer>
-</body>
-</html>
