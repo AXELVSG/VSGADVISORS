@@ -156,7 +156,7 @@
 <body>
   <header>
     <div class="branding">
-      <img src="logo.png" alt="VSG Logo" style="max-height: 100px;" />
+      <img src="logo.png" alt="VSG Logo" style="height: 200px;" />
       <div>
         <p>Diseñamos estrategias, creamos valor</p>
       </div>
@@ -175,9 +175,10 @@
   <section id="nosotros">
   <h2 style="text-align:center">Nuestro Equipo</h2>
   <div class="grid">
-    <div class="card">
-      <img src="jaime.jpg" alt="Jaime Valenzuela" />
-      <h3>Jaime Valenzuela</h3>
+    <div class="card" onclick="this.classList.toggle('active')">
+  <img src="jaime.jpg" alt="Jaime Valenzuela" />
+  <h3>Jaime Valenzuela</h3>
+  <div class="descripcion">Breve descripción sobre Jaime Valenzuela y los servicios que ofrecemos en esta división.</div>
       <p>CEO – Strategic leadership and vision</p>
       <p>+25 años de experiencia en empresas locales y extranjeras.</p>
     </div>
@@ -196,7 +197,7 @@
   </div>
 </section>
 
-<section id="servicios">
+<section id="servicios" style="scroll-margin-top: 180px;">
     <h2 style="text-align:center">Nuestras Divisiones</h2>
     <div class="grid">
       <div class="card" onclick="this.classList.toggle('active')">
@@ -258,6 +259,7 @@
       </div>
     </div>
   </section>
+
 
 
 
