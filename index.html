@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VSG Advisors</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
@@ -13,6 +14,7 @@
       color: white;
       padding: 2rem;
       text-align: center;
+      animation: fadeInDown 1s ease-in-out;
     }
     header h1 { font-size: 2.5rem; font-weight: 800; }
     header p { font-size: 1.2rem; color: #f9d342; }
@@ -23,6 +25,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      animation: fadeIn 1s ease-in-out;
     }
     nav ul {
       list-style: none;
@@ -34,6 +37,10 @@
       text-decoration: none;
       color: #1b3c47;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9d342;
     }
     section {
       padding: 4rem 2rem;
@@ -45,6 +52,19 @@
       color: white;
       text-align: center;
       padding: 6rem 2rem;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+    .hero h2, .hero p {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s ease-in-out;
     }
     .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; max-width: 600px; margin: auto; }
@@ -53,16 +73,18 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      animation: fadeIn 1.2s ease-in-out;
     }
     .card {
       background: white;
       border-radius: 1rem;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: scale(1.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
     }
     .card img { width: 100%; height: 200px; object-fit: cover; }
     .card h3 {
@@ -77,6 +99,19 @@
       padding: 2rem;
       background: #1b3c47;
       color: white;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -100,12 +135,30 @@
   <section id="servicios">
     <h2 style="text-align:center">Nuestras Divisiones</h2>
     <div class="grid">
-      <div class="card"><img src="/assets/finance.jpg" alt="Finance" /><h3>VSG Advisors Finance</h3></div>
-      <div class="card"><img src="/assets/legal.jpg" alt="Legal" /><h3>VSG Advisors Legal</h3></div>
-      <div class="card"><img src="/assets/accounting.jpg" alt="Accounting" /><h3>VSG Advisors Accounting</h3></div>
-      <div class="card"><img src="/assets/tax.jpg" alt="Tax" /><h3>VSG Advisors Tax</h3></div>
-      <div class="card"><img src="/assets/structure.jpg" alt="Structure" /><h3>VSG Advisors Structure</h3></div>
-      <div class="card"><img src="/assets/technology.jpg" alt="Technology" /><h3>VSG Advisors Technology</h3></div>
+      <div class="card">
+        <img src="finance.jpg" alt="Finance" />
+        <h3>VSG Advisors Finance</h3>
+      </div>
+      <div class="card">
+        <img src="legal.jpg" alt="Legal" />
+        <h3>VSG Advisors Legal</h3>
+      </div>
+      <div class="card">
+        <img src="accounting.jpg" alt="Accounting" />
+        <h3>VSG Advisors Accounting</h3>
+      </div>
+      <div class="card">
+        <img src="tax.jpg" alt="Tax" />
+        <h3>VSG Advisors Tax</h3>
+      </div>
+      <div class="card">
+        <img src="structure.jpg" alt="Structure" />
+        <h3>VSG Advisors Structure</h3>
+      </div>
+      <div class="card">
+        <img src="technology.jpg" alt="Technology" />
+        <h3>VSG Advisors Technology</h3>
+      </div>
     </div>
   </section>
   <footer>
