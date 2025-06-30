@@ -16,10 +16,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 60px;
+      height: 90px;
     }
 
     header h1 {
@@ -53,12 +59,13 @@
     }
 
     section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 4rem;
       max-width: 1200px;
       margin: auto;
     }
 
     .hero {
+      margin-top: 120px;
       background: url('https://images.unsplash.com/photo-1531497865147-9f8a4c1a19f9') center/cover no-repeat;
       color: white;
       text-align: center;
@@ -97,6 +104,7 @@
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -111,6 +119,18 @@
       padding: 1rem;
       background: #1b3c47;
       color: white;
+    }
+
+    .descripcion {
+      display: none;
+      padding: 1rem;
+      background: #f0f0f0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .card.active .descripcion {
+      display: block;
     }
 
     footer {
@@ -131,78 +151,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </head>
-<body>
-  <header>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <img src="logo.png" alt="VSG Logo">
-      <div>
-        <h1>VSG Advisors</h1>
-        <p>Diseñamos estrategias, creamos valor</p>
-      </div>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero" id="inicio">
-    <h2>Soluciones Estratégicas para Empresas Familiares</h2>
-    <p>Acompañamos a líderes empresariales en decisiones clave de gobierno, estructura, finanzas e innovación.</p>
-  </section>
-
-  <section id="nosotros">
-    <h2 style="text-align:center">Nuestro Equipo</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="jaime.jpg" alt="Jaime Valenzuela" />
-        <h3>Jaime Valenzuela</h3>
-        <p>CEO – Strategic leadership and vision</p>
-        <p>+25 años de experiencia en empresas locales y extranjeras.</p>
-      </div>
-      <div class="card">
-        <img src="aroldo.jpg" alt="Aroldo Sandoval" />
-        <h3>Aroldo Sandoval</h3>
-        <p>CFO – Financial planning and analysis</p>
-        <p>Experto en liderazgo, planificación financiera y estrategia.</p>
-      </div>
-      <div class="card">
-        <img src="axel.jpg" alt="Axel González" />
-        <h3>Axel González</h3>
-        <p>CIO – Intelligence systems and AI</p>
-        <p>Especialista en automatización y análisis de datos.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="servicios">
-    <h2 style="text-align:center">Nuestras Divisiones</h2>
-    <div class="grid">
-      <div class="card"><img src="finance.jpg" alt="Finance" /><h3>VSG Advisors Finance</h3></div>
-      <div class="card"><img src="legal.jpg" alt="Legal" /><h3>VSG Advisors Legal</h3></div>
-      <div class="card"><img src="accounting.jpg" alt="Accounting" /><h3>VSG Advisors Accounting</h3></div>
-      <div class="card"><img src="tax.jpg" alt="Tax" /><h3>VSG Advisors Tax</h3></div>
-      <div class="card"><img src="structure.jpg" alt="Structure" /><h3>VSG Advisors Structure</h3></div>
-      <div class="card"><img src="technology.jpg" alt="Technology" /><h3>VSG Advisors Technology</h3></div>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <h2 style="text-align:center">Contáctanos</h2>
-    <div class="grid">
-      <div class="card"><h3>Email</h3><p><a href="mailto:contacto@vsgadvisors.com.gt">contacto@vsgadvisors.com.gt</a></p></div>
-      <div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/50200000000">+502 0000 0000</a></p></div>
-      <div class="card"><h3>Ubicación</h3><p>Ciudad de Guatemala, Guatemala</p></div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 VSG Advisors | Todos los derechos reservados</p>
-  </footer>
-</body>
-</html>
