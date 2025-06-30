@@ -10,6 +10,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
     body { background: #f9f9f9; color: #1b3c47; }
     header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
       background: #ffffff;
       color: #1b3c47;
       padding: 1rem 2rem;
@@ -38,8 +40,11 @@
       font-size: 1rem;
       margin: 0;
       color: #d4af37;
+      animation: fadeInLogo 1.4s ease-in-out;
     }
     nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
       background: #ffffff;
       padding: 1rem;
       position: sticky;
@@ -64,6 +69,7 @@
       color: #f9d342;
     }
     section {
+      animation: fadeInUp 0.8s ease-in-out;
       padding: 1.5rem 1rem;
       max-width: 1200px;
       margin: auto;
@@ -226,6 +232,10 @@
     display: flex;
   }
 }
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -255,40 +265,77 @@ document.addEventListener("DOMContentLoaded", () => {
 <body>
   <header>
     <div class="branding">
-      <img src="logo.png" alt="VSG Logo" style="height: 200px;" />
+      <div style="background: white; padding: 0.5rem; border-radius: 0.5rem;">
+        <img src="logo.png" alt="VSG Logo" style="height: 200px; display: block; margin: auto; animation: fadeInLogo 1.2s ease-in-out;" />
+      </div>
       <div>
         <p style="font-size: 0.95rem;">Diseñamos estrategias, creamos valor</p style="font-size: 0.95rem;">
       </div>
     </div>
   </header>
   <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-<nav class="menu">
-  <ul>$1</ul>
+<nav class="menu" style="margin-left: auto; display: flex; justify-content: flex-end;" aria-label="Menú principal">
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
 </nav>
 
   <section id="nosotros" style="scroll-margin-top: 120px;">
-  <h2 style="text-align:center; font-size: 1.6rem; margin-bottom: 1rem;">Nuestro Equipo</h2>
+  <h2 style="text-align:center; font-size: 1.8rem; margin-bottom: 2rem;">Nuestro Equipo</h2>
   <div class="grid">
     <div class="card" onclick="this.classList.toggle('active')">
-  <img src="jaime.jpg" alt="Jaime Valenzuela" />
-  <h3 style="font-size: 1rem;">Jaime Valenzuela</h3 style="font-size: 1rem;">
-  <div class="descripcion">Breve descripción sobre Jaime Valenzuela y los servicios que ofrecemos en esta división.</div>
-      <p style="font-size: 0.95rem; line-height: 1.4;">CEO – Strategic leadership and vision</p>
-      <p>+25 años de experiencia en empresas locales y extranjeras.</p>
+      <img src="jaime.jpg" alt="Jaime Valenzuela" />
+      <h3 style="font-size: 1rem;">Jaime Valenzuela</h3>
+      <div class="descripcion">CEO – Strategic leadership and vision. Más de 25 años de experiencia en banca y empresas locales e internacionales.</div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('active')">
       <img src="aroldo.jpg" alt="Aroldo Sandoval" />
       <h3 style="font-size: 1rem;">Aroldo Sandoval</h3>
-      <p>CFO – Financial planning and analysis</p>
-      <p>Experto en liderazgo, planificación financiera y estrategia.</p>
+      <div class="descripcion">CFO – Especialista en planificación financiera, liderazgo organizacional y desarrollo estratégico.</div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('active')">
       <img src="axel.jpg" alt="Axel González" />
-      <h3>Axel González</h3>
-      <p>CIO – Intelligence systems and AI</p>
-      <p>Especialista en automatización y análisis de datos.</p>
+      <h3 style="font-size: 1rem;">Axel González</h3>
+      <div class="descripcion">CIO – Experticia en automatización, inteligencia de negocios y analítica avanzada de datos.</div>
     </div>
   </div>
+
+  <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">Nuestros Colores</h2>
+  <div class="grid">
+    <div class="card">
+      <div style="background-color: #009F5C; height: 60px;"></div>
+      <div class="descripcion">Azul petróleo (#009F5C): confianza, inteligencia, análisis estratégico.</div>
+    </div>
+    <div class="card">
+      <div style="background-color: #D1D111; height: 60px;"></div>
+      <div class="descripcion">Gris claro (#D1D111): objetividad, equilibrio, claridad en la decisión.</div>
+    </div>
+    <div class="card">
+      <div style="background-color: #C49E57; height: 60px;"></div>
+      <div class="descripcion">Oro suave (#C49E57): excelencia, sofisticación, valor duradero.</div>
+    </div>
+    <div class="card">
+      <div style="background-color: #FFFFFF; height: 60px; border: 1px solid #ccc;"></div>
+      <div class="descripcion">Blanco (#FFFFFF): integridad, orden, transparencia en el actuar.</div>
+    </div>
+  </div>
+
+  <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">¿Qué significa VSG?</h2>
+  <ul style="max-width: 800px; margin: auto; font-size: 0.95rem; line-height: 1.8;">
+    <li><strong>Value:</strong> Creamos y protegemos el valor financiero, familiar y estratégico de nuestros clientes.</li>
+    <li><strong>Strategy:</strong> Diseñamos caminos claros y sostenibles para alcanzar objetivos de negocio y sucesión.</li>
+    <li><strong>Governance:</strong> Establecemos estructuras sólidas que aseguren la continuidad y el buen gobierno corporativo.</li>
+  </ul>
+
+  <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">Visión</h2>
+  <p style="max-width: 800px; margin: auto; text-align: center; font-size: 1rem;">Ser la firma referente en Latinoamérica en estrategia, gobierno y asesoría financiera para empresas familiares.</p>
+
+  <h2 style="text-align:center; margin-top: 3rem; font-size: 1.6rem;">Misión</h2>
+  <p style="max-width: 800px; margin: auto; text-align: center; font-size: 1rem;">Guiar a familias empresarias, fundaciones, emprendedores y asesores en decisiones complejas a través de soluciones personalizadas que aseguren la continuidad, el crecimiento y el valor sostenible de sus negocios.</p>
 </section>
 
 <section style="scroll-margin-top: 120px;">
