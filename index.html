@@ -53,12 +53,20 @@
       animation: fadeIn 1s ease-in-out;
     }
     nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  position: absolute;
+  top: 70px;
+  right: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1000;
+}
     nav a {
       text-decoration: none;
       color: #1b3c47;
@@ -219,22 +227,33 @@
     display: block;
   }
   .menu ul {
-    display: none;
-    flex-direction: column;
-    background: white;
-    padding: 1rem;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  position: absolute;
+  top: 70px;
+  right: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  animation: slideDownMenu 0.3s ease-in-out;
+}
   .menu.open ul {
-    display: flex;
-  }
+  display: flex;
+  max-height: 500px;
+}
 }
 @keyframes fadeInLogo {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDownMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 <script>
@@ -247,8 +266,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.menu');
+  const links = document.querySelectorAll('.menu a');
+
   toggle.addEventListener('click', () => {
     menu.classList.toggle('open');
+    toggle.textContent = menu.classList.contains('open') ? '✕' : '☰';
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.textContent = '☰';
+    });
   });
 });
 </script>
@@ -274,8 +303,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </header>
   <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-<nav class="menu" style="margin-left: auto; display: flex; justify-content: flex-end;" aria-label="Menú principal">
-  <ul>
+<nav class="menu vertical" aria-label="Menú principal">
+  <ul style="transition: max-height 0.3s ease-out; max-height: 0; overflow: hidden;"> 
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#servicios">Servicios</a></li>
@@ -338,28 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <p style="max-width: 800px; margin: auto; text-align: center; font-size: 1rem;">Guiar a familias empresarias, fundaciones, emprendedores y asesores en decisiones complejas a través de soluciones personalizadas que aseguren la continuidad, el crecimiento y el valor sostenible de sus negocios.</p>
 </section>
 
-<section style="scroll-margin-top: 120px;">
-  <h2 style="text-align:center">Nuestros Colores</h2>
-  <ul style="max-width: 800px; margin: auto; font-size: 0.95rem; line-height: 1.8;">
-    <li>✦ Azul petróleo (<strong>#009F5C</strong>): confianza, inteligencia, análisis estratégico.</li>
-    <li>✦ Gris claro (<strong>#D1D111</strong>): objetividad, equilibrio, claridad en la decisión.</li>
-    <li>✦ Oro suave (<strong>#C49E57</strong>): excelencia, sofisticación, valor duradero.</li>
-    <li>✦ Blanco (<strong>#FFFFFF</strong>): integridad, orden, transparencia en el actuar.</li>
-  </ul>
 
-  <h2 style="text-align:center; margin-top: 3rem;">¿Qué significa VSG?</h2>
-  <ul style="max-width: 800px; margin: auto; font-size: 0.95rem; line-height: 1.8;">
-    <li><strong>Value:</strong> Creamos y protegemos el valor financiero, familiar y estratégico de nuestros clientes.</li>
-    <li><strong>Strategy:</strong> Diseñamos caminos claros y sostenibles para alcanzar objetivos de negocio y sucesión.</li>
-    <li><strong>Governance:</strong> Establecemos estructuras sólidas que aseguren la continuidad y el buen gobierno corporativo.</li>
-  </ul>
-
-  <h2 style="text-align:center; margin-top: 3rem;">Visión</h2>
-  <p style="max-width: 800px; margin: auto; text-align: center; font-size: 1rem;">Ser la firma referente en Latinoamérica en estrategia, gobierno y asesoría financiera para empresas familiares.</p>
-
-  <h2 style="text-align:center; margin-top: 3rem;">Misión</h2>
-  <p style="max-width: 800px; margin: auto; text-align: center; font-size: 1rem;">Guiar a familias empresarias, fundaciones, emprendedores y asesores en decisiones complejas a través de soluciones personalizadas que aseguren la continuidad, el crecimiento y el valor sostenible de sus negocios.</p>
-</section>
 
 <section id="servicios" style="scroll-margin-top: 120px;">
     <h2 style="text-align:center">Nuestras Divisiones</h2>
