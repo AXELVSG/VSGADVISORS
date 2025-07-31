@@ -1,63 +1,56 @@
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
+.hero-home {
+  background: url("fondo-vsg.jpg") center/cover no-repeat;
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero-home .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: auto;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.hero-home h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.hero-home p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background-color: #c4a169;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #a57e45;
+}
+
+.intro {
+  text-align: center;
+  padding: 3rem 1.5rem;
   background: #f9f9f9;
   color: #1b3c47;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #ffffff;
-  padding: 1rem 2rem;
-  border-bottom: 2px solid #ccc;
-}
-
-.branding img {
-  height: 80px;
-}
-
-.slogan {
-  font-size: 0.9rem;
-  color: #c4a169;
-  margin-top: 0.5rem;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 1rem 0;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-nav a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #1b3c47;
-}
-
-nav a:hover {
-  color: #c4a169;
-}
-
-section {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.hero {
-  background: linear-gradient(to right, #004C4C, #1b3c47);
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2rem;
 }
 
