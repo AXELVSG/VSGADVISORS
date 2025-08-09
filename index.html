@@ -1,40 +1,392 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VSG Advisors</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="branding">
-      <img src="logo.png" alt="VSG Logo" />
-      <div class="slogan">Diseñamos estrategias, creamos valor</div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VSG Advisors | Diseñamos estrategias, creamos valor</title>
+    <style>
+      :root {
+        /* VSG Advisors brand palette (primary and secondary blues with golden accent) */
+        --color-primary: #003058; /* Azul Profundo Marino */
+        --color-secondary: #003464; /* Azul Noche */
+        --color-tertiary: #004c94; /* Azul Real */
+        --color-accent: #cfa83f; /* Oro Mostaza */
+        --color-light: #f8f9fb; /* Very light background */
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        line-height: 1.6;
+        background-color: var(--color-light);
+        color: var(--color-primary);
+      }
+      /* Navigation styling */
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+      }
+      nav .branding {
+        display: flex;
+        align-items: center;
+      }
+      nav .branding img {
+        height: 40px;
+        margin-right: 0.75rem;
+      }
+      nav .menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+      nav .menu a {
+        text-decoration: none;
+        color: inherit;
+      }
+      nav .menu a:hover {
+        text-decoration: underline;
+      }
+      /* Hero section */
+      header.hero {
+        text-align: center;
+        padding: 4rem 1rem;
+      }
+      header.hero h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      @media (min-width: 768px) {
+        header.hero h1 {
+          font-size: 3rem;
+        }
+      }
+      header.hero p {
+        font-size: 1.125rem;
+        max-width: 48rem;
+        margin: 0 auto 1.5rem;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--color-accent);
+        color: var(--color-primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s ease-in-out;
+      }
+      .btn-primary:hover {
+        background: var(--color-tertiary);
+        color: #fff;
+      }
+      /* Section container */
+      section {
+        padding: 4rem 1rem;
+      }
+      section h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      section#quienes h2,
+      section#contacto h2 {
+        text-align: left;
+      }
+      /* Services */
+      .services-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+      .service-card {
+        flex: 1 1 calc(33.333% - 1.333rem);
+        border: 1px solid #e5e5e5;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        background: #f9f9f9;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s ease-in-out;
+      }
+      .service-card:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .service-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      /* Process */
+      .process-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+      .process-col {
+        flex: 1 1 50%;
+      }
+      .process-step {
+        margin-bottom: 1.5rem;
+      }
+      .process-step h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      /* Team */
+      .team-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+      .team-member {
+        flex: 1 1 calc(33.333% - 1.333rem);
+        text-align: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        background: #f9f9f9;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s ease-in-out;
+      }
+      .team-member:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .team-member h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      .team-member p {
+        margin: 0.25rem 0;
+      }
+      /* Contact form */
+      .contact-form {
+        max-width: 32rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        padding: 0.75rem;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .contact-form button {
+        align-self: center;
+        background: var(--color-primary);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+      }
+      .contact-form button:hover {
+        background: var(--color-accent);
+      }
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.875rem;
+        color: #777;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .service-card,
+        .team-member {
+          flex: 1 1 100%;
+        }
+        .process-col {
+          flex: 1 1 100%;
+        }
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav .menu {
+          margin-top: 0.75rem;
+        }
+        nav .menu a {
+          margin-right: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <!-- Navigation -->
     <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="quienes.html">Quiénes Somos</a></li>
-        <li><a href="opciones.html">VSG Opciones</a></li>
-        <li><a href="clientes.html">Clientes</a></li>
-        <li><a href="contacto.html">Contáctanos</a></li>
-      </ul>
+      <div class="branding">
+        <!-- Use the supplied logo as the primary brand mark -->
+        <img src="logo.png" alt="Logo Petróleos San Pablo" />
+        <span class="font-bold" style="font-size: 1.25rem">VSG Advisors</span>
+      </div>
+      <div class="menu">
+        <a href="#quienes">Quiénes Somos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </nav>
-  </header>
 
-  <section class="hero hero-home">
-    <div class="hero-content">
-      <h1>El estratega financiero<br>que te ayuda en el crecimiento<br>y control de tus negocios</h1>
-      <p>Transformamos tu visión en resultados con estrategia, gobierno y análisis financiero.</p>
-      <a href="quienes.html" class="btn">Conócenos</a>
-    </div>
-  </section>
+    <!-- Hero section -->
+    <header class="hero">
+      <h1>
+        Diseñamos estrategias, creamos valor
+      </h1>
+      <p>
+        Impulsamos el crecimiento y el control de tu negocio combinando
+        gobernanza, estrategia y valor con un enfoque claro en resultados.
+      </p>
+      <a href="#contacto" class="btn-primary"
+        >Solicita tu diagnóstico gratuito</a
+      >
+    </header>
 
-  <section class="intro">
-    <h2>¿Por qué elegir VSG Advisors?</h2>
-    <p>Asumimos el rol financiero que tu negocio necesita para escalar: desde planificación, control y automatización hasta estructuras legales y fiscales sostenibles.</p>
-    <p>Si sientes que <strong>no tienes tiempo</strong>, <strong>haces de todo</strong>, <strong>no entiendes tus estados financieros</strong> o <strong>no tienes estructura</strong>, entonces necesitas una estrategia clara y ejecutable.</p>
-  </section>
-</body>
+    <!-- About / Quiénes Somos -->
+    <section id="quienes">
+      <h2>Quiénes Somos</h2>
+      <p>
+        Somos VSG Advisors, aliados estratégicos que combinan experiencia en
+        gobernanza, estrategia y valor para impulsar el crecimiento sostenible
+        de empresas como Petróleos San Pablo.
+      </p>
+    </section>
+
+    <!-- Services / Opciones -->
+    <section id="servicios" style="background:#ffffff;color:#003058;">
+      <h2>VSG Opciones</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="text-xl font-semibold mb-2">CFO-as-a-Service</h3>
+          <p>
+            Asumimos la dirección financiera de tu empresa, brindando control y
+            liderazgo estratégico.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold mb-2">Estructura &amp; Fiscalidad</h3>
+          <p>
+            Diseñamos e implementamos estructuras corporativas y fiscales
+            óptimas para maximizar utilidades y minimizar riesgos.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold mb-2">Automatización &amp; ERP</h3>
+          <p>
+            Integramos procesos y sistemas de información para generar
+            reportes automáticos y toma de decisiones en tiempo real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process / Proceso -->
+    <section id="proceso">
+      <h2>Nuestro Proceso</h2>
+      <div class="process-grid">
+        <div class="process-col">
+          <div class="process-step">
+            <h4>1. Diagnóstico</h4>
+            <p>
+              Analizamos tu organización para entender la situación actual y
+              detectar oportunidades de mejora.
+            </p>
+          </div>
+          <div class="process-step">
+            <h4>2. Plan Estratégico</h4>
+            <p>
+              Definimos objetivos claros y diseñamos las estrategias para
+              alcanzarlos.
+            </p>
+          </div>
+        </div>
+        <div class="process-col">
+          <div class="process-step">
+            <h4>3. Implementación</h4>
+            <p>
+              Ejecutamos las acciones necesarias en finanzas, fiscalidad y
+              tecnología.
+            </p>
+          </div>
+          <div class="process-step">
+            <h4>4. Seguimiento</h4>
+            <p>
+              Monitoreamos resultados y ajustamos estrategias para asegurar el
+              éxito a largo plazo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team / Equipo -->
+    <section id="equipo" style="background:#ffffff;color:#003058;">
+      <h2>Nuestro Equipo</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <h3>Jaime Valenzuela</h3>
+          <p class="font-medium">CEO &amp; Fundador</p>
+          <p>
+            Visionario financiero con más de 20 años liderando
+            transformaciones empresariales y creando valor estratégico.
+          </p>
+        </div>
+        <div class="team-member">
+          <h3>Aroldo Sandoval</h3>
+          <p class="font-medium">COO</p>
+          <p>
+            Experto en operaciones y procesos corporativos; asegura que nuestra
+            propuesta estratégica se ejecute con eficiencia y excelencia.
+          </p>
+        </div>
+        <div class="team-member">
+          <h3>Axel González</h3>
+          <p class="font-medium">CIO</p>
+          <p>
+            Especialista en tecnología y automatización; integra soluciones
+            digitales que permiten decisiones ágiles y basadas en datos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Contacto -->
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Nombre" />
+        <input type="email" placeholder="Correo electrónico" />
+        <textarea rows="5" placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <p style="text-align:center;margin-top:1.5rem;">
+        También puedes escribirnos a
+        <a href="mailto:info@vsgadvisors.com.gt" style="text-decoration:underline; color: var(--color-tertiary);"
+          >info@vsgadvisors.com.gt</a>
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-sm text-gray-500">
+      &copy; 2025 VSG Advisors. Todos los derechos reservados.
+    </footer>
+  </body>
 </html>
