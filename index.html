@@ -12,6 +12,9 @@
         --color-tertiary: #004c94; /* Azul Real */
         --color-accent: #cfa83f; /* Oro Mostaza */
         --color-light: #f8f9fb; /* Very light background */
+
+        /* subtle alternate background for sections – a soft blue tint derived from the primary color */
+        --color-background-alt: #f0f6fb;
       }
       body {
         margin: 0;
@@ -33,8 +36,8 @@
         align-items: center;
       }
       nav .branding img {
-        /* Increase logo size for better visibility */
-        height: 64px;
+        /* Increase logo size for better visibility – doubled from the previous size */
+        height: 160px;
         margin-right: 0.75rem;
       }
       nav .menu {
@@ -54,12 +57,15 @@
       header.hero {
         text-align: center;
         padding: 4rem 1rem;
+        background: var(--color-primary);
+        color: #ffffff;
       }
       header.hero h1 {
         font-size: 2.25rem;
         font-weight: 800;
         margin-bottom: 1rem;
         line-height: 1.2;
+        color: inherit;
       }
       @media (min-width: 768px) {
         header.hero h1 {
@@ -70,6 +76,7 @@
         font-size: 1.125rem;
         max-width: 48rem;
         margin: 0 auto 1.5rem;
+        color: rgba(255, 255, 255, 0.85);
       }
       .btn-primary {
         display: inline-block;
@@ -88,6 +95,11 @@
       /* Section container */
       section {
         padding: 4rem 1rem;
+      }
+
+      /* Alternate background for sections: provides a soft blue tint to reduce overall whiteness */
+      .alt-background {
+        background-color: var(--color-background-alt);
       }
       section h2 {
         font-size: 2rem;
@@ -109,20 +121,52 @@
       }
       .service-card {
         flex: 1 1 calc(33.333% - 1.333rem);
-        border: 1px solid #e5e5e5;
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        background: #f9f9f9;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        transition: box-shadow 0.2s ease-in-out;
+        border: none;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .service-card:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* When the card is active (clicked), lift it slightly and deepen the shadow */
+      .service-card.active {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+      .service-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
       }
       .service-card h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+        padding: 0.75rem;
+        background: var(--color-secondary);
+        color: #ffffff;
+      }
+      .service-card .description {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1rem;
+        background: #ffffff;
+        color: var(--color-primary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        transition: max-height 0.45s ease, opacity 0.45s ease;
+        opacity: 0;
+      }
+      .service-card.active .description {
+        max-height: 300px;
+        padding: 1rem;
+        opacity: 1;
       }
       /* Process */
       .process-grid {
@@ -154,15 +198,16 @@
       .team-member {
         flex: 1 1 calc(33.333% - 1.333rem);
         text-align: center;
-        border: 1px solid #e5e5e5;
+        border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 0.5rem;
         padding: 1.5rem;
-        background: #f9f9f9;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        transition: box-shadow 0.2s ease-in-out;
+        background: var(--color-light);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
       }
       .team-member:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       .team-member h3 {
         font-size: 1.25rem;
@@ -235,7 +280,7 @@
     <nav>
       <div class="branding">
         <!-- Use the supplied logo as the primary brand mark -->
-        <img src="logo.png" alt="Logo Petróleos San Pablo" />
+        <img src="logo.png" alt="Logo VSG Advisors" />
         <span class="font-bold" style="font-size: 1.25rem">VSG Advisors</span>
       </div>
       <div class="menu">
@@ -262,7 +307,7 @@
     </header>
 
     <!-- About / Quiénes Somos -->
-    <section id="quienes">
+    <section id="quienes" class="alt-background">
       <h2>Quiénes Somos</h2>
       <p>
         Somos VSG Advisors, aliados estratégicos que combinan experiencia en
@@ -275,53 +320,53 @@
     <section id="divisiones" style="background:#ffffff;color:var(--color-primary);">
       <h2>Nuestras Divisiones</h2>
       <div class="services-grid">
-        <div class="service-card">
-          <img src="accounting.jpg" alt="Accounting" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Accounting</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="accounting.jpg" alt="Accounting" />
+          <h3>VSG Advisors Accounting</h3>
+          <div class="description">
             Proveemos servicios contables, registro y análisis financiero con base en NIIF, para generar información precisa y útil para la toma de decisiones.
-          </p>
+          </div>
         </div>
-        <div class="service-card">
-          <img src="finance.jpg" alt="Finance" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Finance</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="finance.jpg" alt="Finance" />
+          <h3>VSG Advisors Finance</h3>
+          <div class="description">
             Desarrollamos estrategias financieras para estructurar, presupuestar, valorar y proyectar los negocios con enfoque en sostenibilidad y eficiencia financiera.
-          </p>
+          </div>
         </div>
-        <div class="service-card">
-          <img src="legal.jpg" alt="Legal" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Legal</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="legal.jpg" alt="Legal" />
+          <h3>VSG Advisors Legal</h3>
+          <div class="description">
             Ofrecemos asesoría legal para estructuración societaria, elaboración de contratos y cumplimiento normativo dentro del marco regulatorio nacional.
-          </p>
+          </div>
         </div>
-        <div class="service-card">
-          <img src="tax.png" alt="Tax" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Tax</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="tax.png" alt="Tax" />
+          <h3>VSG Advisors Tax</h3>
+          <div class="description">
             Implementamos estrategias fiscales conforme a la legislación guatemalteca para asegurar el cumplimiento tributario y la optimización fiscal.
-          </p>
+          </div>
         </div>
-        <div class="service-card">
-          <img src="structure.jpg" alt="Structure" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Structure</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="structure.jpg" alt="Structure" />
+          <h3>VSG Advisors Structure</h3>
+          <div class="description">
             Diseñamos estructuras legales y societarias alineadas al crecimiento, sucesión y proyección patrimonial empresarial.
-          </p>
+          </div>
         </div>
-        <div class="service-card">
-          <img src="technology.jpg" alt="Technology" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem 0.5rem 0 0;" />
-          <h3 class="text-xl font-semibold mb-2">VSG Advisors Technology</h3>
-          <p>
+        <div class="service-card" onclick="this.classList.toggle('active')">
+          <img src="technology.jpg" alt="Technology" />
+          <h3>VSG Advisors Technology</h3>
+          <div class="description">
             Automatizamos procesos contables, fiscales y financieros con herramientas digitales para facilitar la información en tiempo real.
-          </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Process / Proceso -->
-    <section id="proceso">
+    <section id="proceso" class="alt-background">
       <h2>Nuestro Proceso</h2>
       <div class="process-grid">
         <div class="process-col">
@@ -360,7 +405,7 @@
     </section>
 
     <!-- Team / Equipo -->
-    <section id="equipo" style="background:#ffffff;color:#003058;">
+    <section id="equipo" class="alt-background" style="color:var(--color-primary);">
       <h2>Nuestro Equipo</h2>
       <div class="team-grid">
         <div class="team-member">
@@ -391,7 +436,7 @@
     </section>
 
     <!-- Contact / Contacto -->
-    <section id="contacto">
+    <section id="contacto" class="alt-background">
       <h2>Contáctanos</h2>
       <form class="contact-form">
         <input type="text" placeholder="Nombre" />
