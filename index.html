@@ -12,118 +12,107 @@
   <nav>
     <div class="branding">
       <img src="logo.png" alt="Logo VSG Advisors" />
-      <span class="brand-text">VSG Advisors</span>
+      <!-- Texto de marca eliminado a solicitud -->
     </div>
     <div class="menu">
       <a href="#quienes">Quiénes Somos</a>
+      <a href="#dolores">¿Te identificas?</a>
       <a href="#divisiones">Divisiones</a>
       <a href="#proceso">Proceso</a>
-      <a href="#equipo">Equipo</a>
       <a href="#contacto">Contacto</a>
     </div>
   </nav>
 
-  <!-- HERO con foto -->
-  <header class="hero">
+  <!-- HERO (azul corporativo con slogan) -->
+  <header class="hero hero-blue">
     <h1>Diseñamos estrategias, creamos valor</h1>
     <p>Impulsamos el crecimiento y el control de tu negocio combinando gobernanza, estrategia y valor con un enfoque claro en resultados.</p>
-    <a class="btn-primary" href="#contacto">Solicita tu diagnóstico gratuito</a>
+    <a class="btn-primary" href="#contacto">Solicita tu diagnóstico</a>
+    <small class="cta-note">* El diagnóstico tiene costo.</small>
   </header>
 
-  <!-- QUIÉNES SOMOS -->
-  <section id="quienes" class="alt-background">
+  <!-- QUIÉNES SOMOS (centrado) -->
+  <section id="quienes" class="alt-background center-text">
     <h2>Quiénes Somos</h2>
     <p>Somos VSG Advisors, aliados estratégicos que combinan experiencia en gobernanza, estrategia y valor para impulsar el crecimiento sostenible de empresas como Petróleos San Pablo.</p>
   </section>
 
-  <!-- DIVISIONES -->
+  <!-- NUEVA SECCIÓN: Dolores / Mensajes directos (antes de Divisiones) -->
+  <section id="dolores" class="white">
+    <h2>¿Te identificas con esto?</h2>
+    <div class="pain-grid">
+      <article class="pain-card"><span class="dot"></span> Cumplo demasiados roles y no puedo enfocarme en lo estratégico.</article>
+      <article class="pain-card"><span class="dot"></span> Trabajo +60 horas/semana y me queda poco tiempo para mi familia.</article>
+      <article class="pain-card"><span class="dot"></span> No tengo una estructura financiera sólida.</article>
+      <article class="pain-card"><span class="dot"></span> No hago planificación financiera anual.</article>
+      <article class="pain-card"><span class="dot"></span> No proyecto mi flujo de caja para tomar decisiones.</article>
+      <article class="pain-card"><span class="dot"></span> No entiendo o no interpreto mis estados financieros.</article>
+    </div>
+  </section>
+
+  <!-- DIVISIONES (una sola fila) -->
   <section id="divisiones" class="white">
     <h2>Nuestras Divisiones</h2>
-    <div class="services-grid">
+    <div class="divisiones-row">
       <article class="service-card">
-        <img src="accounting.jpg" alt="Accounting" />
-        <h3>VSG Advisors Accounting</h3>
-        <div class="description">Proveemos servicios contables, registro y análisis financiero con base en NIIF, para generar información precisa y útil para la toma de decisiones.</div>
-      </article>
-
-      <article class="service-card">
-        <img src="finance.jpg" alt="Finance" />
-        <h3>VSG Advisors Finance</h3>
-        <div class="description">Desarrollamos estrategias financieras para estructurar, presupuestar, valorar y proyectar los negocios con enfoque en sostenibilidad y eficiencia financiera.</div>
+        <img src="finance.jpg" alt="Finanzas" />
+        <h3>Finanzas</h3>
+        <div class="description">Estructuración, presupuesto, valoración y proyección con enfoque en sostenibilidad y eficiencia.</div>
       </article>
 
       <article class="service-card">
         <img src="legal.jpg" alt="Legal" />
-        <h3>VSG Advisors Legal</h3>
-        <div class="description">Asesoría legal para estructuración societaria, contratos y cumplimiento normativo.</div>
+        <h3>Legal</h3>
+        <div class="description">Estructuración societaria, contratos y cumplimiento normativo.</div>
       </article>
 
       <article class="service-card">
-        <img src="tax.png" alt="Tax" />
-        <h3>VSG Advisors Tax</h3>
-        <div class="description">Estrategias fiscales conforme a la legislación guatemalteca para cumplimiento y optimización.</div>
+        <img src="accounting.jpg" alt="Contable" />
+        <h3>Contable</h3>
+        <div class="description">Contabilidad bajo NIIF para información precisa y útil.</div>
       </article>
 
       <article class="service-card">
-        <img src="structure.jpg" alt="Structure" />
-        <h3>VSG Advisors Structure</h3>
-        <div class="description">Diseño de estructuras legales y de gobernanza alineadas al crecimiento y la sucesión.</div>
+        <img src="tax.png" alt="Impuestos" />
+        <h3>Impuestos</h3>
+        <div class="description">Estrategia fiscal y cumplimiento tributario en Guatemala.</div>
       </article>
 
       <article class="service-card">
-        <img src="technology.jpg" alt="Technology" />
-        <h3>VSG Advisors Technology</h3>
+        <img src="structure.jpg" alt="Estructura" />
+        <h3>Estructura</h3>
+        <div class="description">Diseño de estructuras legales y de gobernanza para el crecimiento y la sucesión.</div>
+      </article>
+
+      <article class="service-card">
+        <img src="technology.jpg" alt="Inteligencia de Negocio" />
+        <h3>Inteligencia de Negocio</h3>
         <div class="description">Automatización y analítica para decisiones en tiempo real.</div>
       </article>
     </div>
   </section>
 
-  <!-- PROCESO (texto en dos columnas) -->
+  <!-- PROCESO (horizontal con imágenes) -->
   <section id="proceso" class="alt-background">
     <h2>Nuestro Proceso</h2>
-    <div class="process-grid">
-      <div class="process-col">
-        <div class="process-step">
-          <h4>1. Diagnóstico</h4>
-          <p>Analizamos tu organización para entender la situación actual y detectar oportunidades de mejora.</p>
-        </div>
-        <div class="process-step">
-          <h4>2. Plan Estratégico</h4>
-          <p>Definimos objetivos claros y diseñamos las estrategias para alcanzarlos.</p>
-        </div>
-      </div>
-      <div class="process-col">
-        <div class="process-step">
-          <h4>3. Implementación</h4>
-          <p>Ejecutamos las acciones necesarias en finanzas, fiscalidad y tecnología.</p>
-        </div>
-        <div class="process-step">
-          <h4>4. Seguimiento</h4>
-          <p>Monitoreamos resultados y ajustamos estrategias para asegurar el éxito a largo plazo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EQUIPO -->
-  <section id="equipo" class="alt-background">
-    <h2>Nuestro Equipo</h2>
-    <div class="team-grid">
-      <div class="team-member">
-        <h3>Jaime Valenzuela</h3>
-        <p class="role">CEO & Fundador</p>
-        <p>Visión financiera con más de 20 años liderando transformaciones y creando valor estratégico.</p>
-      </div>
-      <div class="team-member">
-        <h3>Aroldo Sandoval</h3>
-        <p class="role">COO</p>
-        <p>Experto en operaciones y procesos; asegura ejecución eficiente y excelente.</p>
-      </div>
-      <div class="team-member">
-        <h3>Axel González</h3>
-        <p class="role">CIO</p>
-        <p>Especialista en tecnología y automatización; integra soluciones basadas en datos.</p>
-      </div>
+    <div class="process-row">
+      <article class="step">
+        <img src="proceso-1.png" onerror="this.src='procoso-1.png'" alt="Diagnóstico">
+        <div class="b"><h4>1. Diagnóstico</h4><p>Analizamos tu organización para entender la situación actual y detectar oportunidades de mejora.</p></div>
+      </article>
+      <article class="step">
+        <img src="proceso-2.png" alt="Plan Estratégico">
+        <div class="b"><h4>2. Plan Estratégico</h4><p>Definimos objetivos claros y diseñamos las estrategias para alcanzarlos.</p></div>
+      </article>
+      <article class="step">
+        <img src="proceso-3.png" alt="Implementación">
+        <div class="b"><h4>3. Implementación</h4><p>Ejecutamos las acciones necesarias en finanzas, fiscalidad y tecnología.</p></div>
+      </article>
+      <article class="step">
+        <img src="proceso-4.png" alt="Seguimiento">
+        <div class="b"><h4>4. Seguimiento</h4><p>Monitoreamos resultados y ajustamos estrategias para asegurar el éxito a largo plazo.</p></div>
+      </article>
     </div>
   </section>
 
@@ -136,8 +125,7 @@
         width="100%" height="640" frameborder="0" style="border:0"
         title="Formulario de contacto VSG Advisors">Cargando…</iframe>
     </div>
-    <p class="contact-extra">
-      También puedes escribirnos a
+    <p class="contact-extra">También puedes escribirnos a
       <a href="mailto:info@vsgadvisors.com.gt">info@vsgadvisors.com.gt</a>
     </p>
   </section>
@@ -145,7 +133,7 @@
   <footer>© 2025 VSG Advisors. Todos los derechos reservados.</footer>
 
   <script>
-    // Abre/cierra la descripción de cada división al hacer clic
+    // Toggle de divisiones (opcional)
     document.querySelectorAll('.service-card').forEach(card=>{
       card.addEventListener('click',()=>card.classList.toggle('active'));
     });
